@@ -15,7 +15,7 @@ class Solution:
         rows, cols = len(array), len(array[0])
 
         i, j = 0, cols - 1
-        while (i < rows and j >= 0):
+        while i < rows and j >= 0:
             tmp = array[i][j]
             if tmp == target:
                 return True
