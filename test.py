@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-
-"""
-# @Author  : captain
-# @Time    : 2018/10/28 3:01
-# @Ide     : PyCharm
-"""
-
-
 class Solution:
     def Permutation(self, ss):
         # write code here
@@ -15,16 +6,13 @@ class Solution:
             return []
         res = []
         self.Core(res, list(ss), 0)
-        return sorted(res)
+        return res
 
     def Core(self, res, ss, i):
         if i == len(ss) - 1:
             res.append("".join(ss))
         else:
             for j in range(i, len(ss)):
-                # 可能有字符重复
-                if i != j and ss[i] == ss[j]:
-                    continue
                 tmp = ss[i]
                 ss[i] = ss[j]
                 ss[j] = tmp
@@ -33,3 +21,6 @@ class Solution:
                 tmp = ss[i]
                 ss[i] = ss[j]
                 ss[j] = tmp
+
+test = Solution()
+print(test.Permutation('aa'))
