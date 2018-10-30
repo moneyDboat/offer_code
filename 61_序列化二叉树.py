@@ -13,21 +13,28 @@
 #         self.left = None
 #         self.right = None
 class Solution:
-    # 使用前序遍历
     def Serialize(self, root):
-        # write code here
+        # 使用前序遍历
+        ret = []
         if not root:
-            return 'None'
-        res = str(root.val)
-        return res + ' ' + self.Serialize(root.left) + ' ' + self.Serialize(root.right)
+            return '#'
+        ret.append(str(root.val))
+        l = self.Serialize(root.left)
+        ret.append(l)
+        r = self.Serialize(root.right)
+        ret.append(r)
+        return ','.join(ret)
 
     def Deserialize(self, s):
-        # write code here
-        if s == 'None':
-            return None
-        node_list = s.split()
-        length = len(node_list)
-        root = TreeNode(int(node_list[0]))
-        root.left = self.Deserialize(' '.join(node_list[1:(length + 1) / 2]))
-        root.right = self.Deserialize(' '.join(node_list[(length + 1) / 2:]))
-        return root
+        serialize = s.split(',')
+        tree, sp = self.desCore(serialize, 0)
+        return tree
+
+    def desCore(self, s, sp):
+        if sp >= len(s) or s[sp] == "#":
+            return None, sp + 1
+        node = TreeNode(int(s[sp]))
+        sp += 1
+        node.left, sp = self.desCore(s, sp)
+        node.right, sp = self.desCore(s, sp)
+        return node, sp
