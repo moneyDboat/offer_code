@@ -10,13 +10,14 @@
 class Solution:
     # s 源字符串
     def replaceSpace(self, s):
+        # write code here
         if s is None:
             return None
         # return s.replace(' ', '%20')
         new_s = ''
-        for s_i in s:
-            if s_i == ' ':
+        for char in s:
+            if char == ' ':
                 new_s += '%20'
             else:
-                new_s += s_i
+                new_s += char
         return new_s

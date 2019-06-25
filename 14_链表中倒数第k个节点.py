@@ -15,13 +15,13 @@
 class Solution:
     def FindKthToTail(self, head, k):
         # write code here
-        first, second = head, head
+        # 双指针解法
+        front, back = head, head
         while k:
-            if first is None:
+            if not front:
                 return None
-            first = first.next
+            front = front.next
             k -= 1
-        while first:
-            first = first.next
-            second = second.next
-        return second
+        while front:
+            front, back = front.next, back.next
+        return back

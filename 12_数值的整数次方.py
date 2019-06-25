@@ -9,14 +9,17 @@
 
 class Solution:
     def Power(self, base, exponent):
-        # write code here
-        if exponent == 1:
-            return base
-        elif exponent == -1:
-            return base ** -1
-        elif exponent == 0:
-            return 1
-        if exponent % 2 == 1:
-            return self.Power(base, exponent >> 1) ** 2 * base
-        else:
-            return self.Power(base, exponent >> 1) ** 2
+        # 常规解法
+        # if exponent == 1:
+        #     return base
+        # elif exponent == -1:
+        #     return base ** -1
+        # elif exponent == 0:
+        #     return 1
+        # if exponent % 2 == 1:
+        #     return self.Power(base, exponent >> 1) ** 2 * base
+        # else:
+        #     return self.Power(base, exponent >> 1) ** 2
+
+        # python特色解法
+        return base ** exponent

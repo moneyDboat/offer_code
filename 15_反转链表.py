@@ -15,15 +15,13 @@ class Solution:
     # 返回ListNode
     def ReverseList(self, pHead):
         # write code here
-        if pHead is None:
+        if not pHead:
             return pHead
-        tmp_node = pHead.next
-        pHead.next = None
-        before_node = pHead
-        while (tmp_node):
-            next_node = tmp_node.next
-            tmp_node.next = before_node
-            before_node = tmp_node
-            tmp_node = next_node
-
-        return before_node
+        pre = None
+        while pHead.next:
+            nex = pHead.next
+            pHead.next = pre
+            pre = pHead
+            pHead = nex
+        pHead.next = pre
+        return pHead

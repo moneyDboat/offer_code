@@ -15,7 +15,7 @@ class Solution:
     # 返回合并后列表
     def Merge(self, pHead1, pHead2):
         # write code here
-        # 用递归实现更加简洁
+        # 用递归实现代码更加简洁
         if pHead1 is None:
             return pHead2
         elif pHead2 is None:

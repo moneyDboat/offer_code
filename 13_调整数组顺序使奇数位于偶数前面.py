@@ -10,12 +10,7 @@
 class Solution:
     def reOrderArray(self, array):
         # write code here
-        odd = []
-        even = []
+        odd, even = [], []
         for a in array:
-            if a % 2 == 1:
-                odd.append(a)
-            else:
-                even.append(a)
-
+            odd.append(a) if a % 2 == 1 else even.append(a)
         return odd + even

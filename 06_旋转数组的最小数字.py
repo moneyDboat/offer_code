@@ -9,7 +9,6 @@
 
 class Solution:
     def minNumberInRotateArray(self, rotateArray):
-        # write code here
         # 不能直接遍历，需要使用二分法
         if len(rotateArray) == 0:
             return 0
