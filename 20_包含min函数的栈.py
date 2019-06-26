@@ -12,23 +12,27 @@ class Solution:
     min_stack = []
 
     def push(self, node):
-        # write code here
         self.stack.append(node)
+        min_val = node
         if self.min_stack:
-            tmp_min = self.min_stack[-1]
-            self.min_stack.append(min(node, tmp_min))
-        else:
-            self.min_stack.append(node)
+            min_val = min(self.min_stack[-1], node)
+        self.min_stack.append(min_val)
 
     def pop(self):
-        # write code here
-        self.stack.pop()
-        self.min_stack.pop()
+        if self.stack:
+            self.min_stack.pop()
+            return self.stack.pop()
+        else:
+            return None
 
     def top(self):
-        # write code here
-        return self.stack[-1]
+        if self.stack:
+            return self.stack1[-1]
+        else:
+            return None
 
     def min(self):
-        # write code here
-        return self.min_stack[-1]
+        if self.min_stack:
+            return self.min_stack[-1]
+        else:
+            return None

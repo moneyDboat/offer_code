@@ -11,20 +11,19 @@ class Solution:
     def IsPopOrder(self, pushV, popV):
         # write code here
         stack = []
-        i, j = 0, 0
-        while j < len(popV):
-            if stack and popV[j] == stack[-1]:
+        while popV:
+            # 如果第一个元素相等，直接都弹出，根本不用压入stack
+            if pushV and popV[0] == pushV[0]:
+                popV.pop(0)
+                pushV.pop(0)
+            # 如果stack的最后一个元素与popV中第一个元素相等，将两个元素都弹出
+            elif stack and stack[-1] == popV[0]:
                 stack.pop()
-                j += 1
+                popV.pop(0)
+            # 如果pushV中有数据，压入stack
+            elif pushV:
+                stack.append(pushV.pop(0))
+            # 上面情况都不满足，直接返回false。
             else:
-                while True:
-                    if i == len(pushV):
-                        return False
-                    if pushV[i] == popV[j]:
-                        i += 1
-                        j += 1
-                        break
-                    stack.append(pushV[i])
-                    i += 1
-
+                return False
         return True
