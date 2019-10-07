@@ -25,11 +25,7 @@ class Solution:
                 # 可能有字符重复
                 if i != j and ss[i] == ss[j]:
                     continue
-                tmp = ss[i]
-                ss[i] = ss[j]
-                ss[j] = tmp
+                ss[i], ss[j] = ss[j], ss[i]
                 # 按值传递
                 self.Core(res, ss, i + 1)
-                tmp = ss[i]
-                ss[i] = ss[j]
-                ss[j] = tmp
+                ss[j], ss[i] = ss[i], ss[j]
