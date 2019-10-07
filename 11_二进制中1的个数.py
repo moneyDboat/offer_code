@@ -11,7 +11,7 @@ class Solution:
     def NumberOf1(self, n):
         # write code here
         count = 0
-        # 因为python的int是无线精度的，c++和java的int是32位的，
+        # 因为python的int是无限精度的，c++和java的int是32位的，
         # 所以python的负数相当于前面有无限个1，要对python的负数做处理
         if n < 0:
             n = n & 0xffffffff

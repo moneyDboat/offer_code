@@ -10,15 +10,10 @@
 class Solution:
     def FindGreatestSumOfSubArray(self, array):
         # write code here
-        if not array:
-            return None
-        maxSum = array[0]
-        tmpSum = array[0]
+        # 动态规划
+        max_res = list()
+        max_res.append(array[0])
         for i in range(1, len(array)):
-            if tmpSum > 0:
-                tmpSum += array[i]
-            else:
-                tmpSum = array[i]
-            maxSum = max(maxSum, tmpSum)
+            max_res.append(max(array[i], max_res[i - 1] + array[i]))
 
-        return maxSum
+        return max(max_res)

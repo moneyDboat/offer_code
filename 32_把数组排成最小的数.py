@@ -13,7 +13,7 @@ class Solution:
         # 重点是定义一个比较函数
         if not numbers:
             return ""
-        return "".join(map(str, sorted(numbers, self.compare)))
+        return "".join([str(item) for item in sorted(numbers, self.compare)])
 
     def compare(self, a, b):
         if int(str(a) + str(b)) <= int(str(b) + str(a)):

@@ -35,7 +35,7 @@ class Solution:
             return '#'
 
     def Insert(self, char):
-        # 如果是第一出现，则将对应元素的值改为下边
+        # 如果是第一出现，则将对应元素的值改为字符串中下标
         if self.char_list[ord(char)] == -1:
             self.char_list[ord(char)] = self.index
         # 如果已经出现过两次了，则不修改

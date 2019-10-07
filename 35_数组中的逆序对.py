@@ -28,6 +28,7 @@ class Solution:
         j = mid + 1
         ind = start
 
+        # 归并排序
         while i <= mid and j <= end:
             if data[i] <= data[j]:
                 tmp[ind] = data[i]
