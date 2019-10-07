@@ -14,6 +14,7 @@
 
 class Solution:
     # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    # 递归
     def printListFromTailToHead(self, listNode):
         if listNode is None:
             return []
